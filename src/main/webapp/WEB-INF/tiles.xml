@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+   	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd"> 
+
+ <tiles-definitions>	
+ 	
+ 	<!-- SunShop -->
+ 		
+	<definition name="layouts"
+		template="/WEB-INF/layouts/layout.jsp">
+		<put-attribute name="dialog" value="/WEB-INF/layouts/dialog.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
+
+	</definition>
+
+	<definition name="thanhtoan" extends="layouts">
+		<put-attribute name="content"
+			value="/WEB-INF/views/thanhtoan.jsp" />
+	</definition>
+
+	<definition name="trangchu" extends="layouts">
+		<put-attribute name="content"
+			value="/WEB-INF/views/trangchu.jsp" />
+	</definition>
+	
+	<definition name="chitietsach" extends="layouts">
+		<put-attribute name="content"
+			value="/WEB-INF/views/chitietsach.jsp" />
+	</definition>
+	
+	<definition name="giohang" extends="layouts">
+		<put-attribute name="content"
+			value="/WEB-INF/views/giohang.jsp" />
+	</definition>
+	
+	<definition name="thanhcong" extends="layouts">
+		<put-attribute name="content"
+			value="/WEB-INF/views/thanhcong.jsp" />
+	</definition>
+	
+	
+	<!-- Login -->
+	<definition name="dangnhap"
+		template="/WEB-INF/views/admin/dangnhap.jsp">
+	</definition>
+	
+	
+	<!-- Nội Bộ - Admin -->
+	<definition name="layouts-ad"
+		template="/WEB-INF/layouts/admin/layout-admin.jsp">
+		<put-attribute name="content" value="" />
+	</definition>
+
+	<definition name="trangchu-ad" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/trangchu.jsp" />
+	</definition>
+	
+		<definition name="403" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/403.jsp" />
+	</definition>
+	
+	<!-- Quản Lý Sách -->
+	<definition name="quanlysach" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/quanlysach/quanlysach.jsp" />
+	</definition>
+	
+	<definition name="themsach" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/quanlysach/themsach.jsp" />
+	</definition>
+	
+	<definition name="suasach" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/quanlysach/suasach.jsp" />
+	</definition>
+	
+	<!-- Quản Lý Đơn Hàng -->
+	<definition name="donhang" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/donhang/donhang.jsp" />
+	</definition>
+	
+	<definition name="xuly" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/donhang/xuly.jsp" />
+	</definition>
+	
+	<definition name="chitietdonhang" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/donhang/chitietdonhang.jsp" />
+	</definition>
+	
+	
+	<!-- Admin - Quản Lý Nhân Viên-->
+	<definition name="nhanvien" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/nhanvien/nhanvien.jsp" />
+	</definition>
+	
+	<definition name="themnhanvien" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/nhanvien/themnhanvien.jsp" />
+	</definition>
+	
+	<definition name="suanhanvien" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/nhanvien/suanhanvien.jsp" />
+	</definition>
+
+</tiles-definitions>  
