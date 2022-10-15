@@ -65,7 +65,7 @@
 		</div>
 		<div class="col-md-4 col-sm-12">
 			<label class="text-dark">Email</label>
-			<form:input path="email" class="form-control" readonly="true"/>
+			<form:input path="email" class="form-control" required="required"/>
 		</div>
 		
 			<div class="col-md-4 col-sm-12">

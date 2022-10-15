@@ -51,16 +51,23 @@ public class sachDaoImpl implements sachDao{
 	}
 
 	@Override
-	public List<sach> search(String sach) {
+	public List<sach> search(String sach,String page) {
 		Session session = sessionfactory.getCurrentSession();
 		List<sach> l_hangHoa = session.createQuery("From sach where tenSach like :sach",sach.class)
-				.setParameter("sach","%"+sach+"%").list();
+				.setParameter("sach","%"+sach.trim()+"%").setFirstResult((Integer.valueOf(page)-1)*100).setMaxResults(100).list();
 		return l_hangHoa;
 	}
 
 	@Override
 	public long getCountHh() {
 		return sessionfactory.getCurrentSession().createQuery("select count(*) from sach", Long.class)
+				.getSingleResult();
+	}
+
+	@Override
+	public long getCountSearch(String sach) {
+		return sessionfactory.getCurrentSession().createQuery("select count(*) from sach where tenSach like :sach", Long.class)
+				.setParameter("sach","%"+sach.trim()+"%")
 				.getSingleResult();
 	}
 

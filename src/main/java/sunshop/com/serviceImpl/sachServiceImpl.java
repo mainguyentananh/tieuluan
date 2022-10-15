@@ -43,13 +43,18 @@ public class sachServiceImpl implements sachService{
 	}
 
 	@Override
-	public List<sach> search(String sach) {
-		return hhd.search(sach);
+	public List<sach> search(String sach, String page) {
+		return hhd.search(sach,page);
 	}
 
 	@Override
 	public long getCountHh() {
 		return hhd.getCountHh();
+	}
+
+	@Override
+	public long getCountSearch(String sach) {
+		return hhd.getCountSearch(sach);
 	}
 
 

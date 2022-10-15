@@ -47,8 +47,7 @@
 
 	<div class="row mt-4">
 		<h3 class="list-product-title font-weight-bold">Danh Sách Sản
-			Phẩm</h3>
-		<p>${sum}</p>
+			Phẩm: ${sum}</h3>
 	</div>
 	<div class="group-product">
 		<div class="row">

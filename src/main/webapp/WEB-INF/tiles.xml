@@ -42,6 +42,11 @@
 			value="/WEB-INF/views/thanhcong.jsp" />
 	</definition>
 	
+	<definition name="timkiem" extends="layouts">
+		<put-attribute name="content"
+			value="/WEB-INF/views/timkiem.jsp" />
+	</definition>
+	
 	
 	<!-- Login -->
 	<definition name="dangnhap"
@@ -64,6 +69,12 @@
 		<put-attribute name="content"
 			value="/WEB-INF/views/admin/403.jsp" />
 	</definition>
+	
+		<definition name="thongtincanhan" extends="layouts-ad">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/thongtincanhan.jsp" />
+	</definition>
+	
 	
 	<!-- Quản Lý Sách -->
 	<definition name="quanlysach" extends="layouts-ad">

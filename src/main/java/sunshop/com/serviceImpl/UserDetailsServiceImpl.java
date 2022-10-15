@@ -26,13 +26,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			System.out.println("User not found! " + email);
 		}
 
-		boolean enabled = true;
-		boolean accountNonExpired = true;
-		boolean credentialsNonExpired = true;
-		boolean accountNonLocked = true;
-
-		return new User(nv.getEmail(), nv.getMatKhau(), enabled, accountNonExpired, credentialsNonExpired,
-				accountNonLocked, nv.getAuthorities());
+//		boolean enabled = true;
+//		boolean accountNonExpired = true;
+//		boolean credentialsNonExpired = true;
+//		boolean accountNonLocked = true;
+		User u = (User) User.builder().username(nv.getEmail()).password(nv.getMatKhau()).authorities(nv.getAuthorities()).build();
+		return u;
 
 	}
 

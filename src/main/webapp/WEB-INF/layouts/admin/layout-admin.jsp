@@ -52,9 +52,9 @@
 					href="<c:url value="/noibo/quanlysach" />"> <i
 						class="fas fa-book"></i> <span>Quản Lý Sách</span></a></li>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<li class="nav-item "><a class="nav-link"
+				<!-- 	<li class="nav-item "><a class="nav-link"
 						href="<c:url value="/admin/doanhthu" />"> <i
-							class="fas fa-chart-bar"></i> <span>Thống Kê Doanh Thu</span></a></li>
+							class="fas fa-chart-bar"></i> <span>Thống Kê Doanh Thu</span></a></li> -->
 					<li class="nav-item "><a class="nav-link"
 						href="<c:url value="/admin/nhanvien" />"> <i
 							class="fas fa-users"></i> <span>Quản Lý Nhân Viên</span></a></li>
@@ -75,7 +75,7 @@
 						<div class="topbar-divider d-none d-sm-block"></div>
 						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow"><a
-							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							class="nav-link dropdown-toggle" href="<c:url value="/noibo/thongtincanhan" />" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
 								class="mr-2 d-none d-lg-inline text-gray-600 small">${pageContext.request.userPrincipal.name}</span>

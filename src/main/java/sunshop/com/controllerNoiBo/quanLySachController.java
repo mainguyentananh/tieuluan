@@ -31,10 +31,13 @@ public class quanLySachController {
 		Long sum = hhs.getCountHh();
 		Long temp = 100L;
 		Long disabled = 1L;
-		if (total % temp != 0) {
-			total = total / temp + 1;
-		} else {
-			total = total / temp;
+		if(total%temp!=0) {
+			total = total/temp + 1;
+		}else {
+			total = total/temp;
+		}
+		if(total < 10) {
+			end = total;
 		}
 		if (Long.valueOf(page) >= 10) {
 			start = Long.valueOf(page) / 10 * 10;

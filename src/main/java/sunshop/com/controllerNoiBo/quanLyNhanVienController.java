@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.mail.MessagingException;
+
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sunshop.com.model.nhanVien;
+import sunshop.com.service.mailService;
 import sunshop.com.service.nhanVienService;
 
 @Controller
@@ -25,6 +29,9 @@ public class quanLyNhanVienController {
 	
 	@Autowired
 	private nhanVienService nvs;
+	
+	@Autowired
+	private mailService mail;
 	
 	@GetMapping(value = "/nhanvien")
 	public String getAllNhanVien(Model md) {
@@ -40,9 +47,15 @@ public class quanLyNhanVienController {
 		return "themnhanvien";
 	}
 	
+	
+	public static String generateRandomPassword(int len) {
+		final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		return RandomStringUtils.random(len, chars);
+	}
+	
 	@PostMapping(value = "/luunhanvien")
 	public String luuNhanVien(@ModelAttribute(value = "n_nhanvien") nhanVien nv,
-			@RequestParam(value ="ns") String ngSinh,@RequestParam(value ="gioitinh") String gt) throws ParseException {
+			@RequestParam(value ="ns") String ngSinh,@RequestParam(value ="gioitinh") String gt) throws ParseException, MessagingException {
 		
 		if(gt.equalsIgnoreCase("Nam")) {
 			nv.setGioiTinh(true);
@@ -55,11 +68,16 @@ public class quanLyNhanVienController {
 		
 		//Pass
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		nv.setMatKhau(encoder.encode(nv.getMatKhau()));
+		String matKhau = generateRandomPassword(8);
+		nv.setMatKhau(encoder.encode(matKhau));
 		
 		//
-		
 		nvs.saveNhanVien(nv);
+		String content ="Thông tin đăng nhập vào hệ thống: "
+				+ " Tài khoản: "+nv.getEmail()
+				+ ". Mật khẩu: "+matKhau
+				+". Vui lòng thay đổi mật khẩu sau khi đăng nhập.";
+		mail.sendEmail("sinotsistore@gmail.com",nv.getEmail(), "SunShop Thông Báo",content);
 		
 		return "redirect:/admin/nhanvien";
 	}

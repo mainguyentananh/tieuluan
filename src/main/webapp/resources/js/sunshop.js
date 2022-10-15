@@ -37,5 +37,9 @@ $(document).ready(function(){
 		
 		//end thanhToan
 	
+			$('#search').click(function(){
+				var format = $.trim($('#keysearch').val());
+				$('#keysearch').val(format);
+			});
 
 });

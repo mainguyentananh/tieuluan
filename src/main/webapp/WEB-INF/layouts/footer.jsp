@@ -11,11 +11,11 @@
   
 <div class="single-contact">
     <i class="fa fa-phone"></i> <span>Số Điện Thoại</span>
-    <p class="text-white">(+84) 36934 4656</p>
+    <p class="text-white">(+84) 12345 6789</p>
 </div>
 <div class="single-contact">
     <i class="fa fa-envelope"></i> <span>Email</span>
-    <p class="text-white">mainguyentananh@gmail.com</p>
+    <p class="text-white">sinotsistore@gmail.com</p>
 </div>
 
   <div class="single-contact">
@@ -43,7 +43,7 @@
          
      </div>
   </div>
-  <div class="col text-center"><span>Copyright &copy; MNTA</span></div>   
+  <div class="col text-center"><span>Copyright &copy; SNS</span></div>   
 </div>
 <br>
 </footer>
