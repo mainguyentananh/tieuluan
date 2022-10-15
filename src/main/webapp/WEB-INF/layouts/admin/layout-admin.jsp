@@ -51,9 +51,6 @@
 				<li class="nav-item "><a class="nav-link"
 					href="<c:url value="/noibo/quanlysach" />"> <i
 						class="fas fa-book"></i> <span>Quản Lý Sách</span></a></li>
-				<li class="nav-item "><a class="nav-link"
-					href="<c:url value="/noibo/theloaisach" />"> <i
-						class="fas fa-pen"></i> <span>Quản Lý Thể Loại Sách</span></a></li>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li class="nav-item "><a class="nav-link"
 						href="<c:url value="/admin/doanhthu" />"> <i

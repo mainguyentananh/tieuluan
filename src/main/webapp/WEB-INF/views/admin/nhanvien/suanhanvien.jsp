@@ -47,7 +47,7 @@
 
 		<div class="col-md-6 col-sm-12">
 			<label class="text-dark">Địa Chỉ</label>
-			<form:input path="diaChi" class="form-control" />
+			<form:input path="diaChi" class="form-control" readonly="true"/>
 		</div>
 	</div>
 
@@ -65,19 +65,19 @@
 		</div>
 		<div class="col-md-4 col-sm-12">
 			<label class="text-dark">Email</label>
-			<form:input path="email" class="form-control" />
+			<form:input path="email" class="form-control" readonly="true"/>
 		</div>
 		
 			<div class="col-md-4 col-sm-12">
 			<label class="text-dark">Số Điện Thoại </label> 
-			<form:input path="soDienThoai" class="form-control" />
+			<form:input path="soDienThoai" class="form-control" readonly="true"/>
 		</div>
 	</div>
 
 	<div class="form-row mt-3">
 	<div class="col-md-6 col-sm-12">
 		<button type="submit" class="btn btn-primary btn rounded-0 ">Chỉnh Sửa
-			Sách</button>
+			Nhân Viên</button>
 	</div>
 	</div>
 </form:form>

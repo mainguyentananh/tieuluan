@@ -7,74 +7,55 @@
 </div>
 
 <nav aria-label="breadcrumb">
-			  <ol class="breadcrumb bg-light text-dark">
-			     <li class="breadcrumb-item"><a href="<c:url value="/noibo/quanlysach"/>">Quản Lý Sách</a></li>
-	   			 <li class="breadcrumb-item active" aria-current="page">Thêm Sách</li>
-			  </ol>
+	<ol class="breadcrumb bg-light text-dark">
+		<li class="breadcrumb-item"><a
+			href="<c:url value="/noibo/quanlysach"/>">Quản Lý Sách</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Thêm Sách</li>
+	</ol>
 </nav>
 
 <hr>
 <c:url value="/noibo/luusach" var="save" />
-<form:form action="${save}" method="POST" modelAttribute="n_sach"
-	enctype="multipart/form-data">
+<form:form action="${save}" method="POST" modelAttribute="n_sach">
 
 	<div class="form-row">
 		<div class="col-md-6 col-sm-12">
 			<label class="text-dark">Tên Sách</label>
-			<form:input path="tenHangHoa" class="form-control" />
+			<form:input path="tenSach" class="form-control" required="required" />
 		</div>
-
+		<div class="col-md-6 col-sm-12">
+			<label class="text-dark">Liên Kết Hình</label> <input type="text"
+				class="form-control" required="required"
+				placeholder="Dán liên kết mới của hình ảnh vào đây" name="url" />
+		</div>
+	</div>
+	<div class="form-row">
 		<div class="col-md-6 col-sm-12">
 			<label class="text-dark">Tác Giả</label>
-			<form:input path="tacGia" class="form-control" />
+			<form:input path="tacGia" class="form-control" required="required" />
 		</div>
-	</div>
-
-
-	<div class="form-row">
 		<div class="col-md-6 col-sm-12">
 			<label class="text-dark">Giá</label>
-			<form:input path="gia" class="form-control" />
-		</div>
-
-		<div class="col-md-6 col-sm-12">
-			<label class="text-dark">Giảm Giá</label>
-			<form:input path="giamGia" class="form-control"/>
+			<form:input path="gia" class="form-control"/>
 		</div>
 	</div>
-
 	<div class="form-row">
 		<div class="col-md-6 col-sm-12">
-			<label class="text-dark">Thể Loại</label>
-			<form:select path="maSoLoaiHang.id" class="form-control">
-				
-				<form:options items="${theloai}" itemValue="id"
-					itemLabel="tenLoaiHang" />
-					
-			</form:select>
+			<label class="text-dark">Năm Xuất Bản</label>
+			<form:input path="namXuatBan" class="form-control"
+				required="required" />
 		</div>
-		<div class="col-md-6 col-sm-12">
-			<label class="text-dark">Số Lượng</label>
-			<form:input path="soLuong" class="form-control" />
-		</div>
-	</div>
 
-	<div class="form-row">
 		<div class="col-md-6 col-sm-12">
-			<label class="text-dark col">Mô Tả</label>
-			<form:textarea path="moTa" rows="4" cols="59" class="col"/>
-		</div>
-			<div class="col-md-6 col-sm-12">
-			<label class="text-dark">Hình </label> <input type="file"
-				name="file_hinh" class="form-control" />
-			<form:hidden path="hinh" class="form-control" />
+			<label class="text-dark col">Công khai</label>
+			<form:input path="congKhai" class="form-control" required="required" />
 		</div>
 	</div>
 
 	<div class="form-row mt-3">
-	<div class="col-md-6 col-sm-12">
-		<button type="submit" class="btn btn-primary btn rounded-0 ">Thêm
-			Sách</button>
-	</div>
+		<div class="col-md-6 col-sm-12">
+			<button type="submit" class="btn btn-primary btn rounded-0 ">Thêm
+				Sách</button>
+		</div>
 	</div>
 </form:form>

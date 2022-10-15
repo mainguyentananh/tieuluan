@@ -83,19 +83,34 @@
 	</div>
 </div>
 
+
 <nav aria-label="Page navigation example">
 	<ul class="pagination  justify-content-center">
+		<c:if test="${param.page >= 10 && not empty param.page}">
+			<li class="page-item"><a class="page-link"
+				href="<c:url value="/trangchu?page=1"/>">First</a></li>
+		</c:if>
 		<c:if test="${param.page > 1}">
 			<li class="page-item"><a class="page-link"
 				href="<c:url value="/trangchu?page=${param.page-1}"/>">Previous</a></li>
 		</c:if>
+			
 			<c:forEach begin="${start}" end="${end}" step="1" var="page">
-				<li class="page-item"><a class="page-link"
-					href="<c:url value="/trangchu?page=${page}"/>">${page}</a></li>
+					<c:if test="${disabled == page}">
+					<li class="page-item disabled"><a class="page-link"
+						href="<c:url value="/trangchu?page=${page}"/>">${page}</a></li>
+					</c:if>
+					<c:if test="${disabled != page}">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value="/trangchu?page=${page}"/>">${page}</a></li>
+					</c:if>
 			</c:forEach>
+			
 		<c:if test="${param.page < total || empty param.page}">
 			<li class="page-item"><a class="page-link"
 				href="<c:url value="/trangchu?page=${param.page+1}"/>">Next</a></li>
+			<li class="page-item"><a class="page-link"
+				href="<c:url value="/trangchu?page=${total}"/>">End</a></li>
 		</c:if>
 	</ul>
 </nav>

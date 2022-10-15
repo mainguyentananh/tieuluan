@@ -25,40 +25,40 @@ public class trangChuController {
 	@RequestMapping(value = "/trangchu", method = RequestMethod.GET)
 	public String trangChu(Model md, @RequestParam(value = "page", defaultValue = "1") String page){
 		session.getCount();
-		int start = 1;
+		Long start = 1L;
+		Long end = 10L;
 		Long total = hhs.getCountHh();
 		Long sum = hhs.getCountHh();
-		int temp = 100;
+		Long temp = 100L;
+		Long disabled = 1L;
 		if(total%temp!=0) {
 			total = total/temp + 1;
 		}else {
 			total = total/temp;
 		}
-		Long end = total;
-		if(total > 10) {
-			end = 10L;
+		if(Long.valueOf(page) >= 10) {
+			start = Long.valueOf(page)/10 * 10;
+			end = Long.valueOf(page)/10 * 10 + 10;
 		}
-		if(Integer.valueOf(page) < 1) {
+		if(Long.valueOf(page) < 1) {
 			page = "1";
 		}
-		if(Integer.valueOf(page) > total) {
+		if(Long.valueOf(page) > total) {
 			page = String.valueOf(total);
 		}
-		
-		if(Integer.valueOf(page) >= 10 ) {
-			start = Integer.valueOf(page);
-			if(total/10 == start/10) {
-				end = total;
-			}else {
-				end = start/10 * 10L + 10;
-			}
-			
+		if(Long.valueOf(page) > 1) {
+			disabled = Long.valueOf(page);
+		}
+		if(Long.valueOf(page) >= total) {
+			start = Long.valueOf(page)/10 * 10;
+			 end = total;
 		}
 		List<sach> list_product = hhs.getAllHangHoa(page);
 		md.addAttribute("start", start);
 		md.addAttribute("end", end);
 		md.addAttribute("total", total);
 		md.addAttribute("sum", sum);
+		md.addAttribute("disabled", disabled);
 		md.addAttribute("list_product", list_product);
 		return "trangchu";
 	}
